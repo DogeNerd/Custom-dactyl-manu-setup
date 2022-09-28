@@ -1,4 +1,4 @@
-MCU = atmega32u3										# MCU name
+MCU = atmega32u4										# MCU name
 BOOTLOADER = caterina 							# Bootloader selection
 
 VIA_ENABLE = no										  # Enable VIA support
