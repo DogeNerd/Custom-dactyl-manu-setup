@@ -11,9 +11,6 @@ void matrix_scan_user(void) {
   LEADER_DICTIONARY() {
     leading = false;
 
-    SEQ_ONE_KEY(KC_T) {
-      SEND_STRING(SS_DOWN(X_LGUI)  SS_TAP(X_ENTER) SS_UP(X_LGUI)  SS_DELAY(1000) "timer ");
-  }
   leader_end();
 }
 
