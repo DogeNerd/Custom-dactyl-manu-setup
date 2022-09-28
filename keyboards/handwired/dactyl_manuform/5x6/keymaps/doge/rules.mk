@@ -1,4 +1,5 @@
-BOOTLOADER = rp2040									# Bootloader selection
+MCU = atmega32u3										# MCU name
+BOOTLOADER = caterina 							# Bootloader selection
 
 VIA_ENABLE = no										  # Enable VIA support
 VIAL_ENABLE = no										# Enable VIAL support
