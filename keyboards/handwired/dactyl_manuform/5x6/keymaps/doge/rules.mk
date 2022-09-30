@@ -16,7 +16,7 @@ NKRO_ENABLE = yes										# Enable N-Key Rollover
 BACKLIGHT_ENABLE = no       				# Enable keyboard backlight functionality
 RGBLIGHT_ENABLE = no	       				# Enable keyboard RGB underglow
 SPLIT_KEYBOARD = yes								# Split keyboard
-TAP_DANCE_ENABLE = yes							# Enable tap-dance
+#TAP_DANCE_ENABLE = yes							# Enable tap-dance
 AUDIO_ENABLE = no										# Enable Audio
 # Extra Stuff
 UNICODE_ENABLE = no
