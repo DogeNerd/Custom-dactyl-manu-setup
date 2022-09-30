@@ -28,8 +28,8 @@
 #define MATRIX_ROWS 12
 #define MATRIX_COLS 6
 // Wiring of each half
-//#define MATRIX_COL_PINS { GP7, GP8, GP9, GP10, GP11, GP12 }
-//#define MATRIX_ROW_PINS { GP1, GP2, GP3, GP4, GP5, GP6 }
+//#define MATRIX_COL_PINS { GP8, GP9, GP10, GP11, GP12, GP13 }
+//#define MATRIX_ROW_PINS { GP2, GP3, GP4, GP5, GP6, GP7 }
 #define DIODE_DIRECTION COL2ROW
 // WS2812 RGB LED strip input and number of LEDs
 //#define RGB_DI_PIN D3
@@ -52,6 +52,9 @@
 #define DEBOUNCE 5
 // Tap Dancing
 #define TAPPING_TERM 150
+// ONESHOT Tap
+#define ONESHOT_TAP_TOGGLE 5
+#define ONESHOT_TIMEOUT 1500
 // Disabling ALL of the RGB effects, to use our own and save firmware size.
 #undef RGBLIGHT_ANIMATIONS
 #undef RGBLIGHT_EFFECT_BREATHING

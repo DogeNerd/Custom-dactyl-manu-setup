@@ -12,8 +12,8 @@
 #define MATRIX_ROWS 12
 #define MATRIX_COLS 6
 
-//#define MATRIX_COL_PINS { GP7, GP8, GP9, GP10, GP11, GP12 }
-//#define MATRIX_ROW_PINS { GP1, GP2, GP3, GP4, GP5, GP6 }
+//#define MATRIX_COL_PINS { GP8, GP9, GP10, GP11, GP12, GP13 }
+//#define MATRIX_ROW_PINS { GP2, GP3, GP4, GP5, GP6, GP7 }
 
 #define DIODE_DIRECTION COL2ROW
 // End of Basic Config
