@@ -1,5 +1,6 @@
 //Including external files
 #include "sharedDefines.h"
+
 // Defining scrolling
 bool scrollwheel_down_on = false;
 bool scrollwheel_up_on = false;
