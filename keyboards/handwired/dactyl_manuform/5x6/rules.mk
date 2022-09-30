@@ -1,2 +1,2 @@
 # Board, Bootloader and MCU
-BOOTLOADER = rp2040
+#BOOTLOADER = rp2040

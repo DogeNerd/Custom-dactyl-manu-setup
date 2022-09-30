@@ -28,8 +28,8 @@
 #define MATRIX_ROWS 12
 #define MATRIX_COLS 6
 // Wiring of each half
-#define MATRIX_COL_PINS { GP6, GP7, GP8, GP9, GP10, GP11 }
-#define MATRIX_ROW_PINS { GP0, GP1, GP2, GP3, GP4, GP5 }
+//#define MATRIX_COL_PINS { GP7, GP8, GP9, GP10, GP11, GP12 }
+//#define MATRIX_ROW_PINS { GP1, GP2, GP3, GP4, GP5, GP6 }
 #define DIODE_DIRECTION COL2ROW
 // WS2812 RGB LED strip input and number of LEDs
 //#define RGB_DI_PIN D3

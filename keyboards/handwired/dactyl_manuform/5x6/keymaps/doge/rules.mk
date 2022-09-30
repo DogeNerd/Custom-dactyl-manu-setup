@@ -1,6 +1,5 @@
-#MCU = atmega32u4										# MCU name
-#BOOTLOADER = caterina 							# Bootloader selection
-BOARD = GENERIC_RP_RP2040						# Board selection
+MCU = atmega32u4										# MCU name
+BOOTLOADER = caterina 							# Bootloader selection
 
 #Build Options. change yes to no to disable
 VIA_ENABLE = no										  # Enable VIA support

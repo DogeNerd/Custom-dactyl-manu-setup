@@ -13,7 +13,10 @@
 #define DEBOUNCE 5
 
 /* serial.c configuration for split keyboard */
-#define SOFT_SERIAL_PIN D0
+//#define SOFT_SERIAL_PIN D0
+#define USE_I2C
+#define SERIAL_USART_TX_PIN GP0
+#define SERIAL_USART_RX_PIN GP1
 
 /* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
 #define LOCKING_SUPPORT_ENABLE

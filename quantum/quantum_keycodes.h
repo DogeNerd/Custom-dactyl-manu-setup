@@ -611,10 +611,6 @@ enum quantum_keycodes {
 
     UNICODE_MODE_EMACS,
 
-    AUTOCORRECT_ON,
-    AUTOCORRECT_OFF,
-    AUTOCORRECT_TOGGLE,
-
     // Start of custom keycode range for keyboards and keymaps - always leave at the end
     SAFE_RANGE
 };
@@ -802,10 +798,6 @@ enum quantum_keycodes {
 
 #define EH_LEFT MAGIC_EE_HANDS_LEFT
 #define EH_RGHT MAGIC_EE_HANDS_RIGHT
-
-#define CRT_ON AUTOCORRECT_ON
-#define CRT_OFF AUTOCORRECT_OFF
-#define CRT_TOG AUTOCORRECT_TOGGLE
 
 // GOTO layer - 256 layer max
 #define TO(layer) (QK_TO | ((layer)&0xFF))

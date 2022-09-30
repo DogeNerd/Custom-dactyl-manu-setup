@@ -27,9 +27,9 @@
 #   ifdef RGBLED_NUM
 #   undef RGBLED_NUM
 #   endif
-#   ifdef RGB_MATRIX_LED_COUNT
-#   undef RGB_MATRIX_LED_COUNT
+#   ifdef DRIVER_LED_TOTAL
+#   undef DRIVER_LED_TOTAL
 #   endif
 #   define RGBLED_NUM 48
-#   define RGB_MATRIX_LED_COUNT RGBLED_NUM
+#   define DRIVER_LED_TOTAL RGBLED_NUM
 #endif // KEYBOARD_crkbd_rev1

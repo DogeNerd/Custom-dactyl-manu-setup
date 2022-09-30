@@ -1046,7 +1046,7 @@ const USB_Descriptor_Configuration_t PROGMEM ConfigurationDescriptor = {
  */
 const USB_Descriptor_String_t PROGMEM LanguageString = {
     .Header = {
-        .Size                   = 4,
+        .Size                   = USB_STRING_LEN(1),
         .Type                   = DTYPE_String
     },
     .UnicodeString              = {LANGUAGE_ID_ENG}
@@ -1054,24 +1054,24 @@ const USB_Descriptor_String_t PROGMEM LanguageString = {
 
 const USB_Descriptor_String_t PROGMEM ManufacturerString = {
     .Header = {
-        .Size                   = sizeof(USBSTR(MANUFACTURER)),
+        .Size                   = USB_STRING_LEN(sizeof(STR(MANUFACTURER)) - 1), // Subtract 1 for null terminator
         .Type                   = DTYPE_String
     },
-    .UnicodeString              = USBSTR(MANUFACTURER)
+    .UnicodeString              = LSTR(MANUFACTURER)
 };
 
 const USB_Descriptor_String_t PROGMEM ProductString = {
     .Header = {
-        .Size                   = sizeof(USBSTR(PRODUCT)),
+        .Size                   = USB_STRING_LEN(sizeof(STR(PRODUCT)) - 1), // Subtract 1 for null terminator
         .Type                   = DTYPE_String
     },
-    .UnicodeString              = USBSTR(PRODUCT)
+    .UnicodeString              = LSTR(PRODUCT)
 };
 
 #if defined(SERIAL_NUMBER)
 const USB_Descriptor_String_t PROGMEM SerialNumberString = {
     .Header = {
-        .Size                   = sizeof(USBSTR(SERIAL_NUMBER)),
+        .Size                   = USB_STRING_LEN(sizeof(SERIAL_NUMBER) - 1), // Subtract 1 for null terminator
         .Type                   = DTYPE_String
     },
     .UnicodeString              = USBSTR(SERIAL_NUMBER)
