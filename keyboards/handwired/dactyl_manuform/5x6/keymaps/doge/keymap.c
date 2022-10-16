@@ -1,7 +1,10 @@
 // Include external files
 #include QMK_KEYBOARD_H
 #include "sharedDefines.h"
+// Only include if tap-dance is enabled
+#ifdef TAP_DANCE_ENABLE
 #include "tap-dance.c"
+#endif
 // Only including this file if OLED is enabled.
 #ifdef OLED_ENABLE
 #include "oled.c"

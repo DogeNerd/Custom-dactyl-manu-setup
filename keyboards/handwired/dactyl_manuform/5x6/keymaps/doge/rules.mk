@@ -28,5 +28,7 @@ RAW_ENABLE = no
 MIDI_ENABLE = no
 CONSOLE_ENABLE = no
 
-OPT_DEFS += -DHAL_USE_I2C=TRUE
+# Opt defs comment out if not using OLED screen for the dactyl_manuform.
+#OPT_DEFS += -DHAL_USE_I2C=TRUE
+# Sourcing needed base files
 SRC+= combos.c leader.c start.c
