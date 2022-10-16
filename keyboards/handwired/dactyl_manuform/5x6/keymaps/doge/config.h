@@ -35,7 +35,6 @@
 #define OLED_DISPLAY_WIDTH 128
 #define OLED_DISPLAY_HEIGHT 32
 #define OLED_MATRIX_SIZE 512
-#define OLED_IC OLED_IC_SSD1306
 #endif
 // OLED end
 
