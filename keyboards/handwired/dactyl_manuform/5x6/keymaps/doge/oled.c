@@ -8,7 +8,7 @@
 #include "dog.c"
 
 // Oleds rotation
-oled_rotation_t oled_init_user(oled_rotation_t rotation) { return OLED_ROTATION_180; }
+//oled_rotation_t oled_init_user(oled_rotation_t rotation) { return OLED_ROTATION_180; }
 
 // Need Lines for showing if caps/etc and what layer is toggled.
 bool oled_task_user(void) {
