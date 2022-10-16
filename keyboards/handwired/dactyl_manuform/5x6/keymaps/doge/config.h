@@ -21,6 +21,24 @@
 //#define RP2040_FLASH_GENERIC_03H
 // End of RP2040
 
+// Using some I2C drivers for OLED support
+#ifdef OLED_ENABLE
+#define I2C_DRIVER I2CD1
+#define I2C1_SDA_PIN GP18
+#define I2C1_SCL_PIN GP19
+// Setting more OLED stuff
+#define OLED_DISPLAY_ADDRESS 0x3C
+#define OLED_BRIGHTNESS 255
+#define OLED_TIMEOUT 32000
+#define OLED_FADE_OUT
+#define OLED_FADE_OUT_INTERVAL 0
+#define OLED_DISPLAY_WIDTH 128
+#define OLED_DISPLAY_HEIGHT 32
+#define OLED_MATRIX_SIZE 512
+#define OLED_IC OLED_IC_SSD1306
+#endif
+// OLED end
+
 // Leader Settings
 #define USE_SERIAL
 #define MASTER_LEFT
@@ -48,7 +66,10 @@
 // Complete Death
 #define USB_POLLING_INTERVAL_MS 1
 #define QMK_KEYS_PER_SCAN 12
+// Sub cata for NKRO stuff start
 #define FORCE_NKRO
+#define MG_NKRO MAGIC_TOGGLE_NKRO
+// Sub cata for NKRO stuff end
 #define DEBOUNCE 5
 // Tap Dancing
 #define TAPPING_TERM 150

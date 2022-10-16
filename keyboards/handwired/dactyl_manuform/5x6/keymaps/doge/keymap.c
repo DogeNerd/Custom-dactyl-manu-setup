@@ -2,6 +2,10 @@
 #include QMK_KEYBOARD_H
 #include "sharedDefines.h"
 #include "tap-dance.c"
+// Only including this file if OLED is enabled.
+#ifdef OLED_ENABLE
+#include "oled.c"
+#endif
 
 // Keymappings
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -19,7 +23,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                 KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,      KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, DB_TOGG,
                 KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,      KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
                 KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,      KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, EE_CLR,
-                              KC_NO, KC_NO,                                  KC_NO, KC_NO,
+                              KC_NO, KC_NO,                                  NK_ON, NK_OFF,
                                             KC_NO, KC_NO,      KC_NO, KC_TRNS,
                                              KC_NO, KC_NO,    KC_NO, KC_NO,
                                              KC_NO, KC_NO,    KC_NO, KC_NO),

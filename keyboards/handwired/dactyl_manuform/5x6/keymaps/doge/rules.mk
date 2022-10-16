@@ -18,6 +18,9 @@ RGBLIGHT_ENABLE = no	       				# Enable keyboard RGB underglow
 SPLIT_KEYBOARD = yes								# Split keyboard
 TAP_DANCE_ENABLE = yes							# Enable tap-dance
 AUDIO_ENABLE = no										# Enable Audio
+#OLED_ENABLE = yes										# Enable Oled support
+#OLED_DRIVER = SSD1306								# Oled driver support
+#WPM_ENABLE = yes										# Enable WPM
 # Extra Stuff
 UNICODE_ENABLE = no
 BLUETOOTH_ENABLE = no
@@ -25,4 +28,5 @@ RAW_ENABLE = no
 MIDI_ENABLE = no
 CONSOLE_ENABLE = no
 
+OPT_DEFS += -DHAL_USE_I2C=TRUE
 SRC+= combos.c leader.c start.c
