@@ -18,9 +18,9 @@ RGBLIGHT_ENABLE = no	       				# Enable keyboard RGB underglow
 SPLIT_KEYBOARD = yes								# Split keyboard
 TAP_DANCE_ENABLE = yes							# Enable tap-dance
 AUDIO_ENABLE = no										# Enable Audio
-#OLED_ENABLE = yes										# Enable Oled support
-#OLED_DRIVER = SSD1306								# Oled driver support
-#WPM_ENABLE = yes										# Enable WPM
+OLED_ENABLE = yes										# Enable Oled support
+OLED_DRIVER = SSD1306								# Oled driver support
+WPM_ENABLE = yes										# Enable WPM
 # Extra Stuff
 UNICODE_ENABLE = no
 BLUETOOTH_ENABLE = no
@@ -29,6 +29,6 @@ MIDI_ENABLE = no
 CONSOLE_ENABLE = no
 
 # Opt defs comment out if not using OLED screen for the dactyl_manuform.
-#OPT_DEFS += -DHAL_USE_I2C=TRUE
+OPT_DEFS += -DHAL_USE_I2C=TRUE
 # Sourcing needed base files
 SRC+= combos.c leader.c start.c

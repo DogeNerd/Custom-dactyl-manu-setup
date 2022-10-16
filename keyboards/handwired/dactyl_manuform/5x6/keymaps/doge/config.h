@@ -72,10 +72,13 @@
 // Sub cata for NKRO stuff end
 #define DEBOUNCE 5
 // Tap Dancing
+#ifdef TAP_DANCE_ENABLE
 #define TAPPING_TERM 150
 // ONESHOT Tap
 #define ONESHOT_TAP_TOGGLE 5
 #define ONESHOT_TIMEOUT 1500
+#endif
+// end oneshot and tap dancing
 // Disabling ALL of the RGB effects, to use our own and save firmware size.
 #undef RGBLIGHT_ANIMATIONS
 #undef RGBLIGHT_EFFECT_BREATHING
