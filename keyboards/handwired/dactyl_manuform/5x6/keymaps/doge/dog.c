@@ -140,7 +140,7 @@ static void print_status_narrow(void) {
     render_luna(0, 13);
     /* KEYBOARD PET RENDER END */
 }
-#endif
+
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
@@ -165,3 +165,4 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
   return true;
 }
+#endif
