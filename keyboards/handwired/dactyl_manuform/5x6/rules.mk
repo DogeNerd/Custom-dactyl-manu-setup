@@ -1,4 +1,5 @@
 # Board, Bootloader and MCU
 MCU = RP2040
 SPLIT_KEYBOARD = yes
-SERIAL_DRIVER = usart
+BOOTLOADER = rp2040
+SERIAL_DRIVER = vendor
