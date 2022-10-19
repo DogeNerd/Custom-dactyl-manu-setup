@@ -1,4 +1,7 @@
+// Including needed files
 #include QMK_KEYBOARD_H
+// sharedDefines is need for later in the furture when I changed 0 and 3, to something like this 0 -> colemak and 3 -> furo
+#include "sharedDefines.h"
 
 typedef struct {
   bool is_press_action;
@@ -78,7 +81,7 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
       if (record->event.pressed && is_oneshot_layer_active())
       clear_oneshot_layer_state(ONESHOT_OTHER_KEY_PRESSED);
       return true;
-    case QK_BOOTLOADER:
+    case KC_SPC:
       if (record->event.pressed && is_oneshot_layer_active()){
         clear_oneshot_layer_state(ONESHOT_OTHER_KEY_PRESSED);
         return false;
