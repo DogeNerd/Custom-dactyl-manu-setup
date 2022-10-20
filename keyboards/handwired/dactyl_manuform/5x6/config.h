@@ -4,7 +4,7 @@
 #include "config_common.h"
 // Basic Config
 
-#define SPLIT_HAND_PIN GP26  // high = left, low = right
+#define SPLIT_HAND_PIN      GP26  // high = left, low = right
 
 // Using Serial instead of I2C
 #define SERIAL_USART_FULL_DUPLEX 

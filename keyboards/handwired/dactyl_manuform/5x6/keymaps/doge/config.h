@@ -40,8 +40,9 @@
 // OLED end
 
 // Leader Settings
-#define USE_SERIAL
-#define MASTER_LEFT
+// No longer needed, I think
+//#define USE_SERIAL
+//#define MASTER_LEFT
 // key matrix size // Rows are doubled-up
 #define MATRIX_ROWS 12
 #define MATRIX_COLS 6
