@@ -8,12 +8,13 @@
 #include "dog.c"
 
 // Oleds rotation
-//oled_rotation_t oled_init_user(oled_rotation_t rotation) { return OLED_ROTATION_180; }
+oled_rotation_t oled_init_user(oled_rotation_t rotation) { return OLED_ROTATION_270; }
 
 // Need Lines for showing if caps/etc and what layer is toggled.
 bool oled_task_user(void) {
+  if (!is_keyboard_left()) {
 
-  // Host keyboard layer status
+  // Host  (is_keyboard_)keyboard layer status
   oled_write_P(PSTR("layer: "), false);
 
   switch (get_highest_layer(layer_state)) {
@@ -49,14 +50,16 @@ bool oled_task_user(void) {
     current_wpm   = get_current_wpm();
     led_usb_state = host_keyboard_led_state();
     // Keyboard Pet vartables end    
+  }
+  if (!is_keyboard_right()) {
 
-    if (is_keyboard_master()) {
-      print_status_narrow();
-    } else {
-      print_logo_narrow();
-    }
+  }
+//    if (is_keyboard_left()) {
+//      print_status_narrow();
+//    } else {
+//      print_logo_narrow();
+//    }
 
     return false;
 }
-
 #endif
