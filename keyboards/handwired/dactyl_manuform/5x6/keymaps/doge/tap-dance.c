@@ -2,7 +2,7 @@
 #include QMK_KEYBOARD_H
 // sharedDefines is need for later in the furture when I changed 0 and 3, to something like this 0 -> colemak and 3 -> furo
 #include "sharedDefines.h"
-// This is from Walker's Keyboard Science here's the video「https://www.youtube.com/watch?v=qZgZwZE4s_A」
+// This is from Walker's Keyboard Science here's the video「 https://www.youtube.com/watch?v=qZgZwZE4s_A 」
 
 typedef struct {
   bool is_press_action;

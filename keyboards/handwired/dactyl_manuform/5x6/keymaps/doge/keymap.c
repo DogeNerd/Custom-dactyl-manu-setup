@@ -3,11 +3,11 @@
 #include "sharedDefines.h"
 // Only including this file if TAPdance support is enabled
 #ifdef TAP_DANCE_ENABLE
-#include "tap-dance.c" // This is from Walker's Keyboard Science, here's the video「https://www.youtube.com/watch?v=qZgZwZE4s_A」
+#include "tap-dance.c" // This is from Walker's Keyboard Science, here's the video「 https://www.youtube.com/watch?v=qZgZwZE4s_A 」
 #endif
 // Only including this file if OLED is enabled.
 #ifdef OLED_ENABLE
-#include "oled.c" // oled requires dog.c which is from HellTM, here's the video.「https://www.youtube.com/watch?v=HgIQRazCAjo」
+#include "oled.c" // oled requires dog.c which is from HellTM, here's the video.「 https://www.youtube.com/watch?v=HgIQRazCAjo 」
 #endif
 
 // Keymappings

@@ -5,7 +5,7 @@
 #include "oled_driver.h"
 #include "sharedDefines.h"
 //#include "oled-saferead.c"
-#include "dog.c" // This file is from HellTM here's the video.「https://www.youtube.com/watch?v=HgIQRazCAjo」
+#include "dog.c" // This file is from HellTM here's the video.「 https://www.youtube.com/watch?v=HgIQRazCAjo 」
 
 // Oleds rotation
 oled_rotation_t oled_init_user(oled_rotation_t rotation) { return OLED_ROTATION_270; }
