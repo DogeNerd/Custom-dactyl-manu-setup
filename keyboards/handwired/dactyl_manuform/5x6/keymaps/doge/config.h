@@ -27,6 +27,9 @@
 #define I2C1_SDA_PIN GP18
 #define I2C1_SCL_PIN GP19
 // Setting more OLED stuff
+//#define SPLIT_OLED_ENABLE
+//#define SPLIT_WPM_ENABLE
+//#define SPLIT_MODS_ENABLE
 #define OLED_DISPLAY_WIDTH 128
 #define OLED_DISPLAY_HEIGHT 32
 #define OLED_MATRIX_SIZE 512
