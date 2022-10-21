@@ -44,7 +44,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                 KC_F12,      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_PGUP, KC_UP,    KC_PGDN,  KC_TRNS, KC_DEL,
                 KC_LSFT,     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_LEFT, KC_DOWN,  KC_RIGHT, KC_TRNS, KC_CAPS,
                 TD(ALT_OSL3),KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS,  KC_TRNS, KC_TRNS,
-                                 KC_TRNS, KC_TRNS,                                      KC_F12,KC_TRNS,
+                                 KC_TRNS, KC_TRNS,                                      KC_TRNS,KC_TRNS,
                                                   KC_TRNS, KC_TRNS,     KC_TRNS, KC_TRNS,
                                                    KC_TRNS, KC_TRNS,   KC_TRNS, KC_TRNS,
                                                    TO(0),   KC_TRNS,   KC_TRNS, TO(2))
