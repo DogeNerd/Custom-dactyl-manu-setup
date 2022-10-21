@@ -5,14 +5,14 @@
 #include "oled_driver.h"
 #include "sharedDefines.h"
 //#include "oled-saferead.c"
-#include "dog.c"
+#include "dog.c" // This file is from HellTM here's the video.「https://www.youtube.com/watch?v=HgIQRazCAjo」
 
 // Oleds rotation
 oled_rotation_t oled_init_user(oled_rotation_t rotation) { return OLED_ROTATION_270; }
 
 // Need Lines for showing if caps/etc and what layer is toggled.
 bool oled_task_user(void) {
-  if (!is_keyboard_left()) {
+if (!is_keyboard_left()) {
 
   // Host  (is_keyboard_)keyboard layer status
   oled_write_P(PSTR("layer: "), false);
@@ -51,7 +51,7 @@ bool oled_task_user(void) {
     led_usb_state = host_keyboard_led_state();
     // Keyboard Pet vartables end    
   }
-  if (!is_keyboard_right()) {
+if (!is_keyboard_right()) {
 
   }
 //    if (is_keyboard_left()) {
