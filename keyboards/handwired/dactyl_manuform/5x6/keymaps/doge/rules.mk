@@ -23,10 +23,15 @@ AUDIO_ENABLE = no										# Enable Audio
 #WPM_ENABLE = yes										# Enable WPM
 # Extra Stuff
 UNICODE_ENABLE = no
+UNICODEMAP_ENABLE = no
 BLUETOOTH_ENABLE = no
 RAW_ENABLE = no
 MIDI_ENABLE = no
 CONSOLE_ENABLE = no
+SPACE_CADET_ENABLE = no
+GRAVE_ESC_ENABLE = no
+AVR_USE_MINIMAL_PRINTF = no
+TERMINAL_ENABLE = no
 
 # Opt defs comment out if not using OLED screen for the dactyl_manuform.
 #OPT_DEFS += -DHAL_USE_I2C=TRUE

@@ -1,3 +1,6 @@
+VIA_ENABLE = yes
+VIAL_ENBLE = yes
+
 COMBO_ENABLE = yes
 LEADER_ENABLE = yes
 MOUSEKEY_ENABLE = yes
