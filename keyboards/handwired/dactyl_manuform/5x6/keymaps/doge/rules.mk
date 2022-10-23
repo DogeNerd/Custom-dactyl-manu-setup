@@ -2,8 +2,7 @@
 #BOOTLOADER = caterina 							# Bootloader selection
 
 #Build Options. change yes to no to disable
-VIA_ENABLE = no											# Enable VIA support
-VIAL_ENABLE = no										# Enable VIAL support
+VIA_ENABLE = yes										# Enable VIA support
 BOOTMAGIC_ENABLE = no							  # Enable Bootmagic Lite
 LTO_ENABLE = yes										# Enables Link Time Optimization
 
