@@ -1,8 +1,8 @@
-#MCU = atmega32u4										# MCU name
-#BOOTLOADER = caterina 							# Bootloader selection
+# Set any rules.mk overrides for your specific keymap here.
+# See rules at https://docs.qmk.fm/#/config_options?id=the-rulesmk-file
 
 #Build Options. change yes to no to disable
-VIA_ENABLE = no 										# Enable VIA support
+VIA_ENABLE = yes 										# Enable VIA support
 BOOTMAGIC_ENABLE = no							  # Enable Bootmagic Lite
 LTO_ENABLE = yes										# Enables Link Time Optimization
 
@@ -17,9 +17,9 @@ RGBLIGHT_ENABLE = no	       				# Enable keyboard RGB underglow
 SPLIT_KEYBOARD = yes								# Split keyboard
 TAP_DANCE_ENABLE = yes							# Enable tap-dance
 AUDIO_ENABLE = no										# Enable Audio
-#OLED_ENABLE = yes										# Enable Oled support
-#OLED_DRIVER = SSD1306								# Oled driver support
-#WPM_ENABLE = yes										# Enable WPM
+OLED_ENABLE = no										# Enable OLED support
+OLED_DRIVER = SSD1306								# OLED driver support
+WPM_ENABLE = yes										# Enable WPM
 # Extra Stuff
 UNICODE_ENABLE = no
 UNICODEMAP_ENABLE = no
@@ -33,6 +33,6 @@ AVR_USE_MINIMAL_PRINTF = no
 TERMINAL_ENABLE = no
 
 # Opt defs comment out if not using OLED screen for the dactyl_manuform.
-#OPT_DEFS += -DHAL_USE_I2C=TRUE
+OPT_DEFS += -DHAL_USE_I2C=TRUE
 # Sourcing needed base files
 SRC+= combos.c leader.c start.c
