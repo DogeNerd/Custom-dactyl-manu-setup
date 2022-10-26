@@ -19,7 +19,7 @@ TAP_DANCE_ENABLE = yes							# Enable tap-dance
 AUDIO_ENABLE = no										# Enable Audio
 OLED_ENABLE = no										# Enable OLED support
 OLED_DRIVER = SSD1306								# OLED driver support
-WPM_ENABLE = yes										# Enable WPM
+WPM_ENABLE = no											# Enable WPM
 # Extra Stuff
 UNICODE_ENABLE = no
 UNICODEMAP_ENABLE = no
