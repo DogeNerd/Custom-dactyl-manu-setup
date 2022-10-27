@@ -2,7 +2,8 @@
 #include QMK_KEYBOARD_H
 
 // Note if you do not want combo and leader for scrolling.
-// Go to rules.mk and turn yes to no, same goes for OLED and tap-dance
+// Go to rules.mk and turn yes to no, same goes for OLED and tap-dance.
+// If turning off tap-dance turn the custom keycode, ALT_OSL3 to -> KC_LALT or risk compile failing.
 
 // Defining some BOOLS
 #define bool _Bool
