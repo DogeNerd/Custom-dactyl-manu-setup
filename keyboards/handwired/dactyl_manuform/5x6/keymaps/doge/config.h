@@ -73,7 +73,7 @@
 #define FORCE_NKRO
 #define MG_NKRO MAGIC_TOGGLE_NKRO
 // Sub cata for NKRO stuff end
-#define DEBOUNCE 5
+#define DEBOUNCE 3
 // Tap Dancing
 #ifdef TAP_DANCE_ENABLE
 #define TAPPING_TERM 150

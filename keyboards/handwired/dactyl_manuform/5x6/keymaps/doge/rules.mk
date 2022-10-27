@@ -29,10 +29,10 @@ MIDI_ENABLE = no
 CONSOLE_ENABLE = no
 SPACE_CADET_ENABLE = no
 GRAVE_ESC_ENABLE = no
-AVR_USE_MINIMAL_PRINTF = no
+AVR_USE_MINIMAL_PRINTF = noqmk
 TERMINAL_ENABLE = no
 
 # Opt defs comment out if not using OLED screen for the dactyl_manuform.
 OPT_DEFS += -DHAL_USE_I2C=TRUE
 # Sourcing needed base files
-SRC+= combos.c leader.c start.c
+#SRC+=
