@@ -1,14 +1,17 @@
 // Include external files
 #include QMK_KEYBOARD_H
+#include "version.h"
+// Incuding stdbool for boolean
+#include <stdbool.h>
 
 // Note if you do not want combo and leader for scrolling.
 // Go to rules.mk and turn yes to no, same goes for OLED and tap-dance.
 // If turning off tap-dance turn the custom keycode, ALT_OSL3 to -> KC_LALT or risk compile failing.
 
 // Defining some BOOLS
-#define bool _Bool
-#define true 1
-#define false 0
+//#define bool _Bool
+//#define true 1
+//#define false 0
 
 // Defining keymappings
 #define colemak 0
@@ -16,14 +19,153 @@
 #define qwerty  2
 #define furo    3
 
-// Scroll timer.
+// Setting leader_key bool
+// If not using leader and combo comment this out.
+bool leader_key_is_running = false;
+bool combo_on = true;
+// Starting the scroll timer keyboards post
+// We're also defining the scroll timer
+#ifdef COMBO_ENABLE
+#ifdef LEADER_ENABLE
+// Scroll timer defines
 extern bool scrollwheel_up_on;
 extern bool scrollwheel_down_on;
 extern uint16_t scroll_delay_timer;
+// Scroll timer
+void keyboard_post_init_user(void) {
+    scroll_delay_timer = timer_read();
+}
+#endif
+#endif
 
 // tap-dance with oneshot, this is required for the board.
 // To remove, replace the custom keycode with KC_LALT and disable it in rules.mk.
+// If you wanna change/add more functions go to the other tap-dance section
 // This section is from Walker's Keyboard Science here's the video「 https://www.youtube.com/watch?v=qZgZwZE4s_A 」
+#ifdef TAP_DANCE_ENABLE
+// Tap dance enum
+enum {
+  ALT_OSL3 = colemak
+};
+#endif
+
+// Keymappings
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+	[colemak]   = LAYOUT_5x6(
+                KC_ESC,       KC_1, KC_2, KC_3, KC_4, KC_5,     KC_6, KC_7, KC_8,   KC_9,   KC_0,    KC_BSPC,
+                KC_TAB,       KC_Q, KC_W, KC_F, KC_P, KC_B,     KC_J, KC_L, KC_U,   KC_Y,   KC_SCLN, KC_BSLS,
+                KC_LSFT,      KC_A, KC_R, KC_S, KC_T, KC_G,     KC_M, KC_N, KC_E,   KC_I,   KC_O,    KC_QUOT,
+                TD(ALT_OSL3), KC_Z, KC_X, KC_C, KC_D, KC_V,     KC_K, KC_H,KC_COMM, KC_DOT, KC_SLSH, KC_INT3,
+                         KC_LBRC,KC_RBRC,                             KC_MINS,KC_EQL,
+                                         MO(3),KC_SPC,       KC_ENT,TG(1),
+                                          KC_LCTL, KC_LSFT, KC_RSFT,KC_RCTL,
+                                          KC_LALT, KC_LGUI, KC_RGUI,KC_RALT),
+  [hub]       = LAYOUT_5x6(
+                TO(2), TO(3), KC_NO, KC_NO, KC_NO, KC_NO,      KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, QK_BOOT,
+                KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,      KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, DB_TOGG,
+                KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,      KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+                KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,      KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, EE_CLR,
+                              KC_NO, KC_NO,                                  NK_ON, NK_OFF,
+                                            KC_TRNS, KC_NO,    KC_NO, KC_TRNS,
+                                             KC_NO, KC_NO,    KC_NO, KC_NO,
+                                             KC_NO, KC_NO,    KC_NO, KC_NO),
+  [qwerty]    = LAYOUT_5x6(
+                KC_ESC, KC_1, KC_2, KC_3, KC_4, KC_5,                KC_6, KC_7, KC_8,    KC_9,   KC_0,    KC_BSPC,
+                KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T,                KC_Y, KC_U, KC_I,    KC_O,   KC_P,    KC_BSLS,
+                KC_LCTL,KC_A, KC_S, KC_D, KC_F, KC_G,                KC_H, KC_J, KC_K,    KC_L,   KC_SCLN, KC_QUOT,
+                KC_LSFT,KC_Z, KC_X, KC_C, KC_V, KC_B,                KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, TO(0),
+                              KC_LBRC, KC_RBRC,                                  KC_MINS, KC_EQL,
+                                               KC_TRNS, KC_SPC,     KC_ENT, KC_NO,
+                                                MO(3),KC_LSFT,     KC_RSFT,KC_RCTL,
+                                                KC_LALT,KC_LGUI,   KC_RGUI,KC_NO),
+  [furo]      = LAYOUT_5x6(
+                KC_GRV,      KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,    KC_F6,   KC_F7,   KC_F8,    KC_F9,    KC_F10,  KC_F11,
+                KC_F12,      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_PGUP, KC_UP,    KC_PGDN,  KC_TRNS, KC_DEL,
+                KC_LSFT,     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_LEFT, KC_DOWN,  KC_RIGHT, KC_TRNS, KC_CAPS,
+                TD(ALT_OSL3),KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS,  KC_TRNS, KC_TRNS,
+                                 KC_TRNS, KC_TRNS,                                      KC_TRNS,KC_TRNS,
+                                                  KC_TRNS, KC_TRNS,     KC_TRNS, KC_TRNS,
+                                                   KC_TRNS, KC_TRNS,   KC_TRNS, KC_TRNS,
+                                                   TO(0),   KC_TRNS,   KC_TRNS, TO(2))
+
+};
+
+// Setting Scrolling combo
+#ifdef COMBO_ENABLE
+#ifdef LEADER_ENABLE
+bool scrollwheel_up_on = false;
+bool scrollwheel_down_on = false;
+
+// Defining Combos -- Update combo count after in config.h
+enum combo_events {
+    COMBO_SCROLL_UP,
+    COMBO_SCROLL_DOWN
+};
+
+const uint16_t PROGMEM combo_scroll_up[] = {KC_PGUP, COMBO_END};
+const uint16_t PROGMEM combo_scroll_down[] = {KC_PGDN, COMBO_END};
+
+combo_t key_combos[COMBO_COUNT] = {
+    [COMBO_SCROLL_UP] = COMBO_ACTION(combo_scroll_up),
+    [COMBO_SCROLL_DOWN] = COMBO_ACTION(combo_scroll_down)
+};
+
+void process_combo_event(uint16_t combo_index, bool pressed) {
+
+    switch(combo_index) {
+        case COMBO_SCROLL_UP:
+          if (pressed) {
+            scrollwheel_up_on = true;
+          }else{
+            scrollwheel_up_on = false;
+          }
+      break;
+        case COMBO_SCROLL_DOWN:
+          if (pressed) {
+            scrollwheel_down_on = true;
+          }else{
+            scrollwheel_down_on = false;
+          }
+      break;
+   }
+ }
+#endif
+#endif
+
+#ifdef COMBO_ENABLE
+#ifdef LEADER_ENABLE
+uint16_t scroll_delay_timer;
+
+LEADER_EXTERNS();
+int did_leader_succeed;
+
+void matrix_scan_user(void) {
+  LEADER_DICTIONARY() {
+    did_leader_succeed = leading = false;
+  }
+  leader_end();
+
+  uint16_t current_timer_value = timer_read();
+
+  if(scrollwheel_up_on || scrollwheel_down_on){
+    if(timer_elapsed(scroll_delay_timer) > 50){ //call this every 100ms(Default)
+        register_code16(scrollwheel_up_on ? KC_MS_WH_UP : KC_MS_WH_DOWN);
+        unregister_code16(scrollwheel_up_on ? KC_MS_WH_UP : KC_MS_WH_DOWN);
+        scroll_delay_timer = current_timer_value;
+    }
+  }
+}
+
+void leader_start(void) {
+    leader_key_is_running = true;
+}
+
+void leader_end(void) {
+    leader_key_is_running = false;
+}
+#endif
+#endif
+
 #ifdef TAP_DANCE_ENABLE
 typedef struct {
   bool is_press_action;
@@ -39,16 +181,9 @@ enum {
   TRIPLE_HOLD = 6
 };
 
-// Tap dance enum
-enum {
-  ALT_OSL3 = colemak
-};
-
-
 int cur_dance (qk_tap_dance_state_t *state);
 void alt_finished (qk_tap_dance_state_t *state, void *user_data);
 void alt_reset (qk_tap_dance_state_t *state, void *user_data);
-
 
 int cur_dance (qk_tap_dance_state_t *state) {
   if (state->count == 1) {
@@ -114,136 +249,6 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
   }
   return true;
 }
-#endif
-
-// Keymappings
-const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-	[colemak]   = LAYOUT_5x6(
-                KC_ESC,       KC_1, KC_2, KC_3, KC_4, KC_5,     KC_6, KC_7, KC_8,   KC_9,   KC_0,    KC_BSPC,
-                KC_TAB,       KC_Q, KC_W, KC_F, KC_P, KC_B,     KC_J, KC_L, KC_U,   KC_Y,   KC_SCLN, KC_BSLS,
-                KC_LSFT,      KC_A, KC_R, KC_S, KC_T, KC_G,     KC_M, KC_N, KC_E,   KC_I,   KC_O,    KC_QUOT,
-                TD(ALT_OSL3), KC_Z, KC_X, KC_C, KC_D, KC_V,     KC_K, KC_H,KC_COMM, KC_DOT, KC_SLSH, KC_INT3,
-                         KC_LBRC,KC_RBRC,                             KC_MINS,KC_EQL,
-                                         MO(3),KC_SPC,       KC_ENT,TG(1),
-                                          KC_LCTL, KC_LSFT, KC_RSFT,KC_RCTL,
-                                          KC_LALT, KC_LGUI, KC_RGUI,KC_RALT),
-  [hub]       = LAYOUT_5x6(
-                TO(2), TO(3), KC_NO, KC_NO, KC_NO, KC_NO,      KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, QK_BOOT,
-                KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,      KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, DB_TOGG,
-                KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,      KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-                KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,      KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, EE_CLR,
-                              KC_NO, KC_NO,                                  NK_ON, NK_OFF,
-                                            KC_TRNS, KC_NO,    KC_NO, KC_TRNS,
-                                             KC_NO, KC_NO,    KC_NO, KC_NO,
-                                             KC_NO, KC_NO,    KC_NO, KC_NO),
-  [qwerty]    = LAYOUT_5x6(
-                KC_ESC, KC_1, KC_2, KC_3, KC_4, KC_5,                KC_6, KC_7, KC_8,    KC_9,   KC_0,    KC_BSPC,
-                KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T,                KC_Y, KC_U, KC_I,    KC_O,   KC_P,    KC_BSLS,
-                KC_LCTL,KC_A, KC_S, KC_D, KC_F, KC_G,                KC_H, KC_J, KC_K,    KC_L,   KC_SCLN, KC_QUOT,
-                KC_LSFT,KC_Z, KC_X, KC_C, KC_V, KC_B,                KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, TO(0),
-                              KC_LBRC, KC_RBRC,                                  KC_MINS, KC_EQL,
-                                               KC_TRNS, KC_SPC,     KC_ENT, KC_NO,
-                                                MO(3),KC_LSFT,     KC_RSFT,KC_RCTL,
-                                                KC_LALT,KC_LGUI,   KC_RGUI,KC_NO),
-  [furo]      = LAYOUT_5x6(
-                KC_GRV,      KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,    KC_F6,   KC_F7,   KC_F8,    KC_F9,    KC_F10,  KC_F11,
-                KC_F12,      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_PGUP, KC_UP,    KC_PGDN,  KC_TRNS, KC_DEL,
-                KC_LSFT,     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_LEFT, KC_DOWN,  KC_RIGHT, KC_TRNS, KC_CAPS,
-                TD(ALT_OSL3),KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS,  KC_TRNS, KC_TRNS,
-                                 KC_TRNS, KC_TRNS,                                      KC_TRNS,KC_TRNS,
-                                                  KC_TRNS, KC_TRNS,     KC_TRNS, KC_TRNS,
-                                                   KC_TRNS, KC_TRNS,   KC_TRNS, KC_TRNS,
-                                                   TO(0),   KC_TRNS,   KC_TRNS, TO(2))
-
-};
-
-// Setting Scrolling combo
-#ifdef COMBO_ENABLE
-#ifdef LEADER_ENABLE
-// Defining scrolling
-bool scrollwheel_down_on = false;
-bool scrollwheel_up_on = false;
-// Defining Combos -- Update combo count after in config.h
-enum combo_events {
-    COMBO_SCROLL_UP,
-    COMBO_SCROLL_DOWN
-};
-
-const uint16_t PROGMEM combo_scroll_up[] = {KC_PGUP, COMBO_END};
-const uint16_t PROGMEM combo_scroll_down[] = {KC_PGDN, COMBO_END};
-
-combo_t key_combos[COMBO_COUNT] = {
-    [COMBO_SCROLL_UP] = COMBO_ACTION(combo_scroll_up),
-    [COMBO_SCROLL_DOWN] = COMBO_ACTION(combo_scroll_down)
-};
-
-void process_combo_event(uint16_t combo_index, bool pressed) {
-
-    switch(combo_index) {
-      case COMBO_SCROLL_UP:
-          if (pressed) {
-              scrollwheel_up_on = true;
-          }else{
-              scrollwheel_up_on = false;
-          }
-    break;
-      case COMBO_SCROLL_DOWN:
-          if (pressed) {
-              scrollwheel_down_on = true;
-          }else{
-              scrollwheel_down_on = false;
-   }
- }
-}
-#endif
-#endif
-
-// Setting up Leaders for scrolling combo
-#ifdef COMBO_ENABLE
-#ifdef LEADER_ENABLE
-bool leader_key_is_running = false;
-
-uint16_t scroll_delay_timer;
-
-LEADER_EXTERNS();
-
-void matrix_scan_user(void) {
-  LEADER_DICTIONARY() {
-    leading = false;
-
-  leader_end();
-}
-
-  uint16_t current_timer_value = timer_read();
-
-  if(scrollwheel_up_on || scrollwheel_down_on){
-    if(timer_elapsed(scroll_delay_timer) > 50){ //call this every 100ms(Default)
-        register_code16(scrollwheel_up_on ? KC_MS_WH_UP : KC_MS_WH_DOWN);
-        unregister_code16(scrollwheel_up_on ? KC_MS_WH_UP : KC_MS_WH_DOWN);
-        scroll_delay_timer = current_timer_value;
-    }
-  }
-
-}
-
-void leader_start(void) {
-    leader_key_is_running = true;
-}
-
-void leader_end(void) {
-    leader_key_is_running = false;
-}
-#endif
-#endif
-
-// Wrapping leader/combo file by having scroll timer start on keyboard post.
-#ifdef COMBO_ENABLE
-#ifdef LEADER_ENABLE
-// starting scroll delay on keyboard post
-void keyboard_post_init_user(void) {
-    scroll_delay_timer = timer_read();
-}
-#endif
 #endif
 
 // Setting OLED(optional) support
