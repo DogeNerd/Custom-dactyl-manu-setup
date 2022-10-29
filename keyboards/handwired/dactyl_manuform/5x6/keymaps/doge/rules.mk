@@ -12,11 +12,7 @@ LEADER_ENABLE = yes									# Enable Leader
 MOUSEKEY_ENABLE = yes								# Mouse keys
 EXTRAKEY_ENABLE = no         				# Audio control and System control
 NKRO_ENABLE = yes										# Enable N-Key Rollover
-SPLIT_KEYBOARD = yes								# Split keyboard
-TAP_DANCE_ENABLE = yes							# Enable tap-dance
-OLED_ENABLE = no										# Enable OLED support
-WPM_ENABLE = no											# Enable WPM -- Needed for OLED setup
-RGB_MATRIX_ENABLE = no							# Enable RGB Matrix support
+TAP_DACE_ENABLE = yes 							# Enable tap-dance
 
 # Opt defs comment out if not using OLED screen for the dactyl_manuform.
 OPT_DEFS += -DHAL_USE_I2C=TRUE

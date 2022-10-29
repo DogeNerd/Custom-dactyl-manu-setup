@@ -1,4 +1,4 @@
-# Board, Bootloader and MCU
+# Bootloader and MCU
 MCU = RP2040
 BOOTLOADER = rp2040
 SERIAL_DRIVER = vendor
@@ -7,4 +7,9 @@ SPLIT_KEYBOARD = yes
 
 # Drivers for components
 OLED_DRIVER = SSD1306
+OLED_DRIVER = no
+# Needed for OLED setup
+WPM_ENABLE = no
+# RGB Matrix
 RGB_MATRIX_DRIVER = WS2812
+RGB_MATRIX_ENABLE = no
