@@ -2,8 +2,8 @@
 #pragma once
 
 #include "config_common.h"
-// Basic Config
 
+// Basic Config
 #define SPLIT_HAND_PIN      GP26  // high = left, low = right
 
 // Using Serial instead of I2C
@@ -25,8 +25,37 @@
 #define DIODE_DIRECTION COL2ROW
 
 // WS2812 RGB LED strip input and number of LEDs
+#ifdef RGB_MATRIX_DRIVER
 #define RGB_DI_PIN GP28
 #define RGBLED_NUM 70
+#endif
 //#define RGBLED_NUM 12
+
+// OLED Pins and Driver
+#ifdef OLED_ENABLE
+#define I2C_DRIVER I2CD1
+#define I2C1_SDA_PIN GP18
+#define I2C1_SCL_PIN GP19
+// OLED Options
+#define SPLIT_OLED_ENABLE
+#define SPLIT_WPM_ENABLE
+#define OLED_DISPLAY_WIDTH 128
+#define OLED_DISPLAY_HEIGHT 32
+#define OLED_MATRIX_SIZE 512
+#define OLED_RESET -1
+#define OLED_DISPLAY_ADDRESS 0x3C
+#define OLED_BRIGHTNESS 255
+#define OLED_TIMEOUT 32000
+#define OLED_FADE_OUT
+#define OLED_FADE_OUT_INTERVAL 0
+#endif
+
+// Misc settings
+// Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap
+#define LOCKING_SUPPORT_ENABLE
+// Locking resynchronize hack
+#define LOCKING_RESYNC_ENABLE
+// Enables This makes it easier for fast typists to use dual-function keys
+#define PERMISSIVE_HOLD
 
 // End of Basic Config
