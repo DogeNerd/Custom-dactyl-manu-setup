@@ -3,7 +3,8 @@
 
 #Build Options. change yes to no to disable
 VIA_ENABLE = yes 										# Enable VIA support
-BOOTMAGIC_ENABLE = no							  # Enable Bootmagic Lite
+# Change Bootmagic from no to lite if you wanna use bootmagic
+BOOTMAGIC_ENABLE = no 						  # Enable Bootmagic Lite
 LTO_ENABLE = yes										# Enables Link Time Optimization
 
 COMBO_ENABLE = yes									# Enables combos
