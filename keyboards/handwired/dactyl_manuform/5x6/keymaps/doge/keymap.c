@@ -8,11 +8,6 @@
 // Go to rules.mk and turn yes to no, same goes for OLED and tap-dance.
 // If turning off tap-dance turn the custom keycode, ALT_OSL3 to -> KC_LALT or risk compile failing.
 
-// Defining some BOOLS
-//#define bool _Bool
-//#define true 1
-//#define false 0
-
 // Defining keymappings
 #define colemak 0
 #define hub     1

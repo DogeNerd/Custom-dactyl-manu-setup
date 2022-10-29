@@ -24,4 +24,9 @@
 #define MATRIX_ROW_PINS { GP10, GP11, GP12, GP13, GP14, GP15 }
 #define DIODE_DIRECTION COL2ROW
 
+// WS2812 RGB LED strip input and number of LEDs
+#define RGB_DI_PIN GP28
+#define RGBLED_NUM 70
+//#define RGBLED_NUM 12
+
 // End of Basic Config
