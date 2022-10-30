@@ -24,16 +24,16 @@
 
 #ifdef USE_I2C
 
-#ifndef SLAVE_I2C_TIMEOUT
-#define SLAVE_I2C_TIMEOUT 100
-#endif // SLAVE_I2C_TIMEOUT
+#    ifndef SLAVE_I2C_TIMEOUT
+#        define SLAVE_I2C_TIMEOUT 100
+#    endif // SLAVE_I2C_TIMEOUT
 
-#ifndef SLAVE_I2C_ADDRESS
-#define SLAVE_I2C_ADDRESS 0x32
-#endif
+#    ifndef SLAVE_I2C_ADDRESS
+#        define SLAVE_I2C_ADDRESS 0x32
+#    endif
 
-#include "i2c_master.h"
-#include "i2c_slave.h"
+#    include "i2c_master.h"
+#    include "i2c_slave.h"
 
 // Ensure the I2C buffer has enough space
 _Static_assert(sizeof(split_shared_memory_t) <= I2C_SLAVE_REG_COUNT, "split_shared_memory_t too large for I2C_SLAVE_REG_COUNT");
