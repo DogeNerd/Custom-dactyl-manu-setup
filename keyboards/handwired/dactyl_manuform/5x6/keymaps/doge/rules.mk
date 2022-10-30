@@ -14,7 +14,5 @@ EXTRAKEY_ENABLE = no         				# Audio control and System control
 NKRO_ENABLE = yes										# Enable N-Key Rollover
 TAP_DANCE_ENABLE = yes 							# Enable tap-dance
 
-# Opt defs comment out if not using OLED screen for the dactyl_manuform.
-OPT_DEFS += -DHAL_USE_I2C=TRUE
 # Sourcing needed base files
 #SRC+=
