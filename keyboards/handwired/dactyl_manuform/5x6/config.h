@@ -25,11 +25,14 @@
 #define DIODE_DIRECTION COL2ROW
 
 // WS2812 RGB LED strip input and number of LEDs
-#ifdef RGB_MATRIX_DRIVER
-#define RGB_DI_PIN GP28
-#define RGBLED_NUM 70
+#ifdef RGBLIGHT_ENABLE
+#define RGB_DI_PIN GP17
+#define RGBLED_NUM 34
+//#define DRIVER_LED_TOTAL 34
+#define RGBLED_SPLIT { 17, 17 }
+//#define STM32_SYSCLK KINETIS_SYSCLK_FREQUENCY
+#define NOP_FUDGE 0.4
 #endif
-//#define RGBLED_NUM 12
 
 // OLED Pins and Driver
 #ifdef OLED_ENABLE
