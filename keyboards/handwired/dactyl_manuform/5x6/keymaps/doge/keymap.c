@@ -85,23 +85,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 };
 
-// Defining RGB Matrix
+// Defining RGB Light
 #ifdef RGBLIGHT_ENABLE
 // Defining colors used
-#define HSV_RED           0, 255, 255
-#define HSV_WHITE         0,   0, 255
-#define HSV_AQUA        180,  20, 100
-// Defining under-glow per-layer 
+#define HSV_BLOOD_RED          0,  77, 100
+#define HSV_DOGE_WHITE         0,   0, 255
+#define HSV_OCEAN_AQUA        174, 67,  94
+// Defining under-glow per-layer
 layer_state_t layer_state_set_user(layer_state_t state) {
   switch (get_highest_layer(state)) {
     case colemak:
-      rgblight_sethsv (0, 255, 255);
+      rgblight_sethsv (HSV_BLOOD_RED);
       break;
     case hub:
-      rgblight_sethsv (180, 20, 100);
+      rgblight_sethsv (HSV_OCEAN_AQUA);
       break;
     default: // For any other layers, or the default layer.
-      rgblight_sethsv(0, 255, 255);
+      rgblight_sethsv(HSV_BLOOD_RED);
       break;
   }
   return state;
