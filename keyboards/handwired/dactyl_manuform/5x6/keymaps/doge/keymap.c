@@ -42,6 +42,24 @@ void keyboard_post_init_user(void) {
 enum {
   ALT_OSL3 = colemak
 };
+
+typedef struct {
+  bool is_press_action;
+  int state;
+} tap;
+
+enum {
+SINGLE_TAP =  1,
+SINGLE_HOLD = 2,
+DOUBLE_TAP =  3,
+DOUBLE_HOLD = 4,
+TRIPLE_TAP =  5,
+TRIPLE_HOLD = 6
+};
+
+int cur_dance (qk_tap_dance_state_t *state);
+void alt_finished (qk_tap_dance_state_t *state, void *user_data);
+void alt_reset (qk_tap_dance_state_t *state, void *user_data);
 #endif
 
 // Keymappings
@@ -185,24 +203,6 @@ void leader_end(void) {
 #endif
 
 #ifdef TAP_DANCE_ENABLE
-typedef struct {
-  bool is_press_action;
-  int state;
-} tap;
-
-enum {
-  SINGLE_TAP =  1,
-  SINGLE_HOLD = 2,
-  DOUBLE_TAP =  3,
-  DOUBLE_HOLD = 4,
-  TRIPLE_TAP =  5,
-  TRIPLE_HOLD = 6
-};
-
-int cur_dance (qk_tap_dance_state_t *state);
-void alt_finished (qk_tap_dance_state_t *state, void *user_data);
-void alt_reset (qk_tap_dance_state_t *state, void *user_data);
-
 int cur_dance (qk_tap_dance_state_t *state) {
   if (state->count == 1) {
     if (state->pressed) return SINGLE_HOLD;

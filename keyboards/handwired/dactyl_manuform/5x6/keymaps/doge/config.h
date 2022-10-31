@@ -41,7 +41,7 @@
 
 // Tap Dancing and Oneshot settings
 #ifdef TAP_DANCE_ENABLE
-#define TAPPING_TERM 150
+#define TAPPING_TERM 250
 #define ONESHOT_TAP_TOGGLE 5
 #define ONESHOT_TIMEOUT 1500
 #endif
