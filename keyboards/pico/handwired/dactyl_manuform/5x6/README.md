@@ -29,5 +29,5 @@ The doge keymap, have sections in the keymap.c that is from other people go supp
 <a href="https://www.youtube.com/watch?v=bORY26QnDvA" target="_blank">in keymap leader and combo section is from Terminal_Heat_Sink</a>
 
 4. BongoCat in keymap.c
-<a href="https://www.youtube.com/channel/UCZhTifRRr_ZHwOigbVjMl0A/videos" target="_blank">in keymap OLED(Optional) BongoCat section is from mechwild</a>
+<a href="https://www.youtube.com/channel/UCZhTifRRr_ZHwOigbVjMl0A/videos" target="_blank">in keymap OLED(Optional) BongoCat section is from mechwild</a> \ 
 <a href="https://github.com/qmk/qmk_firmware/tree/master/keyboards/mechwild/mercutio/keymaps/bongocat" target="_blank">keymap</a>
