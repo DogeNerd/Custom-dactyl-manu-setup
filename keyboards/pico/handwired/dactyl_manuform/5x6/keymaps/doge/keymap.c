@@ -8,11 +8,16 @@
 // Go to rules.mk and turn yes to no, same goes for OLED and tap-dance.
 // If turning off tap-dance turn the custom keycode, ALT_OSL3 to -> KC_LALT or risk compile failing.
 
-// Defining keymappings
-#define colemak 0
-#define hub     1
-#define qwerty  2
-#define furo    3
+// Defining keymappings and MO, TG and TO
+#define _COLEMAK 0
+#define _HUB     1
+#define _QWERTY  2
+#define _FURO    3
+// MO, TG and TO
+#define COLEMAK TO(_COLEMAK)
+#define HUB     TG(_HUB)
+#define QWERTY  TO(_QWERTY)
+#define FURO    MO(_FURO)
 
 // Setting leader_key bool
 // If not using leader and combo comment this out.
@@ -40,7 +45,7 @@ void keyboard_post_init_user(void) {
 #ifdef TAP_DANCE_ENABLE
 // Tap dance enum
 enum {
-  ALT_OSL3 = colemak
+  ALT_OSL3 = _COLEMAK
 };
 
 typedef struct {
@@ -64,17 +69,17 @@ void alt_reset    (qk_tap_dance_state_t *state, void *user_data);
 
 // Keymappings
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-	[colemak] = LAYOUT_5x6(
+	[_COLEMAK] = LAYOUT_5x6(
               KC_ESC,       KC_1, KC_2, KC_3, KC_4, KC_5,     KC_6, KC_7, KC_8,   KC_9,   KC_0,    KC_BSPC,
               KC_TAB,       KC_Q, KC_W, KC_F, KC_P, KC_B,     KC_J, KC_L, KC_U,   KC_Y,   KC_SCLN, KC_BSLS,
               KC_LSFT,      KC_A, KC_R, KC_S, KC_T, KC_G,     KC_M, KC_N, KC_E,   KC_I,   KC_O,    KC_QUOT,
               TD(ALT_OSL3), KC_Z, KC_X, KC_C, KC_D, KC_V,     KC_K, KC_H,KC_COMM, KC_DOT, KC_SLSH, KC_INT3,
                        KC_LBRC,KC_RBRC,                             KC_MINS,KC_EQL,
-                                       MO(3),KC_SPC,       KC_ENT,TG(1),
+                                      FURO,KC_SPC,        KC_ENT,HUB,
                                         KC_LCTL, KC_LSFT, KC_RSFT,KC_RCTL,
                                         KC_LALT, KC_LGUI, KC_RGUI,KC_RALT),
-  [hub]     = LAYOUT_5x6(
-              TO(2), TO(3), KC_NO, KC_NO, KC_NO, KC_NO,      KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, QK_BOOT,
+  [_HUB]     = LAYOUT_5x6(
+              QWERTY,FURO,  KC_NO, KC_NO, KC_NO, KC_NO,      KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, QK_BOOT,
               KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,      KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, DB_TOGG,
               KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,      KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
               KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,      KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, EE_CLR,
@@ -82,16 +87,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                           KC_TRNS, KC_NO,    KC_NO, KC_TRNS,
                                            KC_NO, KC_NO,    KC_NO, KC_NO,
                                            KC_NO, KC_NO,    KC_NO, KC_NO),
-  [qwerty]  = LAYOUT_5x6(
+  [_QWERTY]  = LAYOUT_5x6(
               KC_ESC, KC_1, KC_2, KC_3, KC_4, KC_5,                KC_6, KC_7, KC_8,    KC_9,   KC_0,    KC_BSPC,
               KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T,                KC_Y, KC_U, KC_I,    KC_O,   KC_P,    KC_BSLS,
               KC_LCTL,KC_A, KC_S, KC_D, KC_F, KC_G,                KC_H, KC_J, KC_K,    KC_L,   KC_SCLN, KC_QUOT,
-              KC_LSFT,KC_Z, KC_X, KC_C, KC_V, KC_B,                KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, TO(0),
+              KC_LSFT,KC_Z, KC_X, KC_C, KC_V, KC_B,                KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, COLEMAK,
                             KC_LBRC, KC_RBRC,                                  KC_MINS, KC_EQL,
                                              KC_TRNS, KC_SPC,     KC_ENT, KC_NO,
-                                              MO(3),KC_LSFT,     KC_RSFT,KC_RCTL,
-                                              KC_LALT,KC_LGUI,   KC_RGUI,KC_NO),
-  [furo]    = LAYOUT_5x6(
+                                             FURO,KC_LSFT,      KC_RSFT,KC_RCTL,
+                                             KC_LALT,KC_LGUI,   KC_RGUI,KC_NO),
+  [_FURO]    = LAYOUT_5x6(
               KC_GRV,      KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,    KC_F6,   KC_F7,   KC_F8,    KC_F9,    KC_F10,  KC_F11,
               KC_F12,      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_PGUP, KC_UP,    KC_PGDN,  KC_TRNS, KC_DEL,
               KC_LSFT,     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_LEFT, KC_DOWN,  KC_RIGHT, KC_TRNS, KC_CAPS,
@@ -99,7 +104,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                KC_TRNS, KC_TRNS,                                      KC_TRNS,KC_TRNS,
                                                 KC_TRNS, KC_TRNS,     KC_TRNS, KC_TRNS,
                                                  KC_TRNS, KC_TRNS,   KC_TRNS, KC_TRNS,
-                                                 TO(0),   KC_TRNS,   KC_TRNS, TO(2))
+                                                 COLEMAK, KC_TRNS,   KC_TRNS, QWERTY)
 
 };
 
@@ -112,10 +117,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Defining under-glow per-layer
 layer_state_t layer_state_set_user(layer_state_t state) {
   switch (get_highest_layer(state)) {
-    case colemak:
+    case _COLEMAK:
       rgblight_sethsv (HSV_BLOOD_RED);
       break;
-    case hub:
+    case _HUB:
       rgblight_sethsv (HSV_OCEAN_AQUA);
       break;
     default: // For any other layers, or the default layer.
@@ -221,16 +226,16 @@ int cur_dance (qk_tap_dance_state_t *state) {
 
 static tap alttap_state = {
   .is_press_action = true,
-  .state = colemak
+  .state = _COLEMAK
 };
 
 void alt_finished (qk_tap_dance_state_t *state, void *user_data) {
   alttap_state.state = cur_dance(state);
   switch (alttap_state.state) {
-    case SINGLE_TAP: set_oneshot_layer(furo, ONESHOT_START); clear_oneshot_layer_state(ONESHOT_PRESSED); break;
+    case SINGLE_TAP: set_oneshot_layer(_FURO, ONESHOT_START); clear_oneshot_layer_state(ONESHOT_PRESSED); break;
     case SINGLE_HOLD: register_code(KC_LALT); break;
-    case DOUBLE_TAP: set_oneshot_layer(furo, ONESHOT_START); set_oneshot_layer(furo, ONESHOT_PRESSED); break;
-    case DOUBLE_HOLD: register_code(KC_LALT); layer_on(furo); break;
+    case DOUBLE_TAP: set_oneshot_layer(_FURO, ONESHOT_START); set_oneshot_layer(_FURO, ONESHOT_PRESSED); break;
+    case DOUBLE_HOLD: register_code(KC_LALT); layer_on(_FURO); break;
  }
 }
 
@@ -239,9 +244,9 @@ void alt_reset (qk_tap_dance_state_t *state, void *user_data) {
     case SINGLE_TAP: break;
     case SINGLE_HOLD: unregister_code(KC_LALT); break;
     case DOUBLE_TAP: break;
-    case DOUBLE_HOLD: layer_off(furo); unregister_code(KC_LALT); break;
+    case DOUBLE_HOLD: layer_off(_FURO); unregister_code(KC_LALT); break;
   }
-  alttap_state.state = colemak;
+  alttap_state.state = _COLEMAK;
 }
 
 qk_tap_dance_action_t tap_dance_actions[] = {
@@ -576,20 +581,20 @@ if (is_keyboard_left()) {
   oled_write_P(PSTR("layer: "), false);
 
   switch (get_highest_layer(layer_state)) {
-    case colemak:
-      oled_write_P(PSTR("colemak\n"), false);
+    case _COLEMAK:
+      oled_write_P(PSTR("Colemak\n"), false);
       break;
 
-    case hub:
-      oled_write_P(PSTR("hub\n"), false);
+    case _HUB:
+      oled_write_P(PSTR("Hub\n"), false);
       break;
 
-    case qwerty:
-      oled_write_P(PSTR("qwerty\n"), false);
+    case _QWERTY:
+      oled_write_P(PSTR("Qwerty\n"), false);
       break;
 
-    case furo:
-      oled_write_P(PSTR("furo\n"), false);
+    case _FURO:
+      oled_write_P(PSTR("Furo\n"), false);
       break;
 
     default:
