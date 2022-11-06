@@ -49,17 +49,17 @@ typedef struct {
 } tap;
 
 enum {
-SINGLE_TAP =  1,
-SINGLE_HOLD = 2,
-DOUBLE_TAP =  3,
-DOUBLE_HOLD = 4,
-TRIPLE_TAP =  5,
-TRIPLE_HOLD = 6
+SINGLE_TAP  =  1,
+SINGLE_HOLD =  2,
+DOUBLE_TAP  =  3,
+DOUBLE_HOLD =  4,
+TRIPLE_TAP  =  5,
+TRIPLE_HOLD =  6
 };
 
-int cur_dance (qk_tap_dance_state_t *state);
+int  cur_dance    (qk_tap_dance_state_t *state);
 void alt_finished (qk_tap_dance_state_t *state, void *user_data);
-void alt_reset (qk_tap_dance_state_t *state, void *user_data);
+void alt_reset    (qk_tap_dance_state_t *state, void *user_data);
 #endif
 
 // Keymappings
@@ -107,7 +107,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #ifdef RGBLIGHT_ENABLE
 // Defining colors used
 #define HSV_BLOOD_RED          0,  77, 100
-#define HSV_DOGE_WHITE         0,   0, 255
+#define HSV_WHITE              0,   0, 255
 #define HSV_OCEAN_AQUA        174, 67,  94
 // Defining under-glow per-layer
 layer_state_t layer_state_set_user(layer_state_t state) {
