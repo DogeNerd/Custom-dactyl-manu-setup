@@ -2,7 +2,6 @@
 
 Just a dactyl_manform 5x6 but instead of default MCU being used, it's a Pico Pi
 
-* Keyboard Maintainer: [Doge](https://github.com/Doge)
 * Hardware Supported: Pico Pi
 * Hardware Availability: https://www.raspberrypi.com/products/raspberry-pi-pico/ 
 
