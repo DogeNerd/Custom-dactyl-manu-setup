@@ -19,14 +19,15 @@
 #define QWERTY  TO(_QWERTY)
 #define FURO    MO(_FURO)
 
+#ifdef COMBO_ENABLE
+#ifdef LEADER_ENABLE
 // Setting leader_key bool
 // If not using leader and combo comment this out.
 bool leader_key_is_running = false;
 bool combo_on = true;
 // Starting the scroll timer keyboards post
 // We're also defining the scroll timer
-#ifdef COMBO_ENABLE
-#ifdef LEADER_ENABLE
+
 // Scroll timer defines
 extern bool scrollwheel_up_on;
 extern bool scrollwheel_down_on;
@@ -69,7 +70,7 @@ void alt_reset    (qk_tap_dance_state_t *state, void *user_data);
 
 // Keymappings
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-	[_COLEMAK] = LAYOUT_5x6(
+  [_COLEMAK] = LAYOUT_5x6(
               KC_ESC,       KC_1, KC_2, KC_3, KC_4, KC_5,     KC_6, KC_7, KC_8,   KC_9,   KC_0,    KC_BSPC,
               KC_TAB,       KC_Q, KC_W, KC_F, KC_P, KC_B,     KC_J, KC_L, KC_U,   KC_Y,   KC_SCLN, KC_BSLS,
               KC_LSFT,      KC_A, KC_R, KC_S, KC_T, KC_G,     KC_M, KC_N, KC_E,   KC_I,   KC_O,    KC_QUOT,
@@ -170,11 +171,7 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
       break;
    }
  }
-#endif
-#endif
-
-#ifdef COMBO_ENABLE
-#ifdef LEADER_ENABLE
+// 
 uint16_t scroll_delay_timer;
 
 LEADER_EXTERNS();
