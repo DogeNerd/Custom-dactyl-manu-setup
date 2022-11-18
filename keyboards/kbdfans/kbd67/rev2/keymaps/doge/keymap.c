@@ -10,13 +10,13 @@
 
 // Setting leader_key bool
 // If not using leader and combo comment this out.
+#ifdef COMBO_ENABLE
+#ifdef LEADER_ENABLE
 bool leader_key_is_running = false;
 bool combo_on = true;
 // Starting the scroll timer keyboards post
 // We're also defining the scroll timer
 // Scroll timer defines
-#ifdef COMBO_ENABLE
-#ifdef LEADER_ENABLE
 extern bool scrollwheel_up_on;
 extern bool scrollwheel_down_on;
 extern uint16_t scroll_delay_timer;
@@ -72,11 +72,7 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
       break;
    }
  }
-#endif
-#endif
-
-#ifdef COMBO_ENABLE
-#ifdef LEADER_ENABLE
+//
 uint16_t scroll_delay_timer;
 
 LEADER_EXTERNS();
