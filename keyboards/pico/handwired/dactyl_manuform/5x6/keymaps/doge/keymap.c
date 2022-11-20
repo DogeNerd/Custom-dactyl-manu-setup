@@ -79,9 +79,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    KC_LSFT,     KC_A   , KC_R   , KC_S   ,KC_T   , KC_G   ,     KC_M   , KC_N   , KC_E   , KC_I   , KC_O   , KC_QUOT,
    TD(ALT_OSL3),KC_Z,    KC_X   , KC_C   ,KC_D   , KC_V   ,     KC_K   , KC_H   , KC_COMM, KC_DOT , KC_SLSH, KC_INT3,
                          KC_LBRC, KC_RBRC,                                        KC_MINS, KC_EQL ,
-                            							FURO   , KC_SPC ,     KC_ENT , HUB    ,
-                             							KC_LCTL, KC_LSFT, 		KC_RSFT, KC_RCTL,
-                             							KC_LALT, KC_LGUI, 		KC_RGUI, KC_RALT),
+                                          FURO   , KC_SPC ,     KC_ENT , HUB    ,
+                                          KC_LCTL, KC_LSFT,     KC_RSFT, KC_RCTL,
+                                          KC_LALT, KC_LGUI,     KC_RGUI, KC_RALT),
 	 [_HUB]     = LAYOUT_5x6(
    QWERTY ,     FURO   , XXXXXXX, XXXXXXX,XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT,
    _______,     XXXXXXX, XXXXXXX, XXXXXXX,XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DB_TOGG,
