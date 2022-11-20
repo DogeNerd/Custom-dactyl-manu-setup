@@ -7,7 +7,7 @@ BOOTMAGIC_ENABLE = no
 LTO_ENABLE = yes
 
 # Other Features
-COMBO_ENABLE = yes Enables combos
+COMBO_ENABLE = yes
 LEADER_ENABLE = yes
 MOUSEKEY_ENABLE = yes
 EXTRAKEY_ENABLE = no
