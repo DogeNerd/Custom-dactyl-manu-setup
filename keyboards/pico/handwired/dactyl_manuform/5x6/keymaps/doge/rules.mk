@@ -5,7 +5,6 @@
 VIA_ENABLE = yes
 BOOTMAGIC_ENABLE = no
 LTO_ENABLE = yes
-
 # Other Features
 COMBO_ENABLE = yes
 LEADER_ENABLE = yes
@@ -13,6 +12,5 @@ MOUSEKEY_ENABLE = yes
 EXTRAKEY_ENABLE = no
 NKRO_ENABLE = yes
 TAP_DANCE_ENABLE = yes
-
 # Sourcing needed base files
 #SRC+=
