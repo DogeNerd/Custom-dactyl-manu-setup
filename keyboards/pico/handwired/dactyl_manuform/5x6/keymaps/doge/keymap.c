@@ -115,8 +115,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Defining RGB Light
 #ifdef RGBLIGHT_ENABLE
 // Defining colors used
-#define HSV_BLOOD_RED          0,  77, 100
-#define HSV_WHITE              0,   0, 255
+#define HSV_BLOOD_RED           0, 77, 100
+#define HSV_WHITE               0,  0, 255
 #define HSV_OCEAN_AQUA        174, 67,  94
 // Defining under-glow per-layer
 layer_state_t layer_state_set_user(layer_state_t state) {
@@ -604,7 +604,7 @@ if (is_keyboard_left()) {
 
     // Host Keyboard LED status
     if (is_keyboard_left) {
-      led_t led_state = host_keyboard_led_state();
+			led_t led_state = host_keyboard_led_state();
 			//oled_write_P(PSTR("NKRO "), keymap_config.nkro);
 			oled_write_P(led_state.keymap_config.nkro ? PSTR("NKRO ") : PSTR("    "), false);
       oled_write_P(led_state.num_lock ? PSTR("NUM ") : PSTR("    "), false);
