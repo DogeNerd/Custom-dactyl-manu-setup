@@ -7,11 +7,11 @@ SPLIT_KEYBOARD = yes
 
 # Drivers for components
 OLED_DRIVER = SSD1306
-OLED_DRIVER = no
+OLED_DRIVER = yes
 # Needed for OLED setup
-WPM_ENABLE = no
+WPM_ENABLE = yes
 # RGB Light
-RGBLIGHT_ENABLE = no
+RGBLIGHT_ENABLE = yes
 
 # Opt defs, comment out you're if not using OLED screen for the dactyl_manuform.
 OPT_DEFS += -DHAL_USE_I2C=TRUE
