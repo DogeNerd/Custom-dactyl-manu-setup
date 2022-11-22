@@ -3,7 +3,7 @@
 
 #include "config_common.h"
 
-// Basic Config
+// Defining the split board's master.
 #define SPLIT_HAND_PIN      GP26  // high = left, low = right
 
 // Using Serial instead of I2C
@@ -57,5 +57,3 @@
 // Enables This makes it easier for fast typists to use dual-function keys
 #define PERMISSIVE_HOLD
 #define IGNORE_MOD_TAP_INTERRUPT
-
-// End of Basic Config
