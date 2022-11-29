@@ -1,5 +1,3 @@
-// Dactyl Manuform Hotswap
-#pragma once
 
 #include "config_common.h"
 
@@ -40,8 +38,6 @@
 #define I2C1_SDA_PIN GP18
 #define I2C1_SCL_PIN GP19
 // OLED Options
-#define SPLIT_OLED_ENABLE
-#define SPLIT_WPM_ENABLE
 #define OLED_DISPLAY_WIDTH 128
 #define OLED_DISPLAY_HEIGHT 32
 #define OLED_MATRIX_SIZE 512

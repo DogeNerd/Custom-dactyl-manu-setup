@@ -575,8 +575,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 // Need Lines for showing if caps/etc and what layer is toggled.
 bool oled_task_user(void) {
-if (is_keyboard_left()) {
-
+if (is_keyboard_left) {
   // Host  (is_keyboard_)keyboard layer status
   oled_write_P(PSTR("layer: "), false);
 
@@ -601,10 +600,10 @@ if (is_keyboard_left()) {
       // Or use the write_ln shortcut over adding '\n' to the end of your string
       oled_write_P(PSTR("Undefined"), false);
   }
-
+}
     // Host Keyboard LED status
-    if (is_keyboard_left) {
       led_t led_state = host_keyboard_led_state();
+      if (is_keyboard_left) {
       //oled_write_P(PSTR("NKRO "), keymap_config.nkro);
       oled_write_P(led_state.keymap_config.nkro ? PSTR("NKRO ") : PSTR("    "), false);
       oled_write_P(led_state.num_lock ? PSTR("NUM ") : PSTR("    "), false);
@@ -614,15 +613,13 @@ if (is_keyboard_left()) {
       current_wpm   = get_current_wpm();
       led_usb_state = host_keyboard_led_state();
       // Keyboard Pet vartables end
-    }
+     }
     if (is_keyboard_right) {
       render_anim();
       oled_set_cursor(0,4);
       sprintf(wpm_str, "WPM: %03d", get_current_wpm());
       oled_write(wpm_str, false);
     }
-  }
-//if (is_keyboard_left()) {}
 
     if (is_keyboard_master()) {
       print_status_narrow();
