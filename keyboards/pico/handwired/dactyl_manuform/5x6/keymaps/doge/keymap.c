@@ -581,18 +581,18 @@ if (is_keyboard_left) {
 
   switch (get_highest_layer(layer_state)) {
     // Colemak
-		case _COLEMAK:
+    case _COLEMAK:
       oled_write_P(PSTR("Colemak\n"), false);
       break;
 		// Hub
     case _HUB:
       oled_write_P(PSTR("Hub\n"), false);
       break;
-		// Qwerty aka gaming
+    // Qwerty aka gaming
     case _QWERTY:
       oled_write_P(PSTR("Qwerty\n"), false);
       break;
-		// Furo missing keyboard keys
+    // Furo missing keyboard keys
     case _FURO:
       oled_write_P(PSTR("Furo\n"), false);
       break;
