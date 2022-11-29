@@ -602,7 +602,7 @@ if (is_keyboard_left) {
       oled_write_P(PSTR("Undefined"), false);
   }
 }
-    // Host Keyboard LED status
+      // Host Keyboard LED status
       led_t led_state = host_keyboard_led_state();
       if (is_keyboard_left) {
       //oled_write_P(PSTR("NKRO "), keymap_config.nkro);
