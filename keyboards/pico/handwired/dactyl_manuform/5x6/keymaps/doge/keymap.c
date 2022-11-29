@@ -580,18 +580,19 @@ if (is_keyboard_left) {
   oled_write_P(PSTR("layer: "), false);
 
   switch (get_highest_layer(layer_state)) {
-    case _COLEMAK:
+    // Colemak
+		case _COLEMAK:
       oled_write_P(PSTR("Colemak\n"), false);
       break;
-
+		// Hub
     case _HUB:
       oled_write_P(PSTR("Hub\n"), false);
       break;
-
+		// Qwerty aka gaming
     case _QWERTY:
       oled_write_P(PSTR("Qwerty\n"), false);
       break;
-
+		// Furo missing keyboard keys
     case _FURO:
       oled_write_P(PSTR("Furo\n"), false);
       break;
@@ -605,10 +606,10 @@ if (is_keyboard_left) {
       led_t led_state = host_keyboard_led_state();
       if (is_keyboard_left) {
       //oled_write_P(PSTR("NKRO "), keymap_config.nkro);
-      oled_write_P(led_state.keymap_config.nkro ? PSTR("NKRO ") : PSTR("    "), false);
-      oled_write_P(led_state.num_lock ? PSTR("NUM ") : PSTR("    "), false);
-      oled_write_P(led_state.caps_lock ? PSTR("CAP ") : PSTR("    "), false);
-      oled_write_P(led_state.scroll_lock ? PSTR("SCR ") : PSTR("    "), false);
+      oled_write_P(led_state.keymap_config.nkro ? PSTR("NKRO On") : PSTR("NKRO Off"), false);
+      oled_write_P(led_state.num_lock ? PSTR("Numpad On") : PSTR("Numpad Off"), false);
+      oled_write_P(led_state.caps_lock ? PSTR("Caps On") : PSTR("Caps Off"), false);
+      oled_write_P(led_state.scroll_lock ? PSTR("Scroll On") : PSTR("Scroll Off"), false);
       // Keyboard Pet vartables start
       current_wpm   = get_current_wpm();
       led_usb_state = host_keyboard_led_state();
@@ -620,7 +621,6 @@ if (is_keyboard_left) {
       sprintf(wpm_str, "WPM: %03d", get_current_wpm());
       oled_write(wpm_str, false);
     }
-
     if (is_keyboard_master()) {
       print_status_narrow();
     } else {
