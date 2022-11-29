@@ -584,7 +584,7 @@ if (is_keyboard_left) {
     case _COLEMAK:
       oled_write_P(PSTR("Colemak\n"), false);
       break;
-		// Hub
+    // Hub
     case _HUB:
       oled_write_P(PSTR("Hub\n"), false);
       break;
