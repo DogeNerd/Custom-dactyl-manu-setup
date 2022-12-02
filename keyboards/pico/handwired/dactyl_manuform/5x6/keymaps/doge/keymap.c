@@ -1,8 +1,10 @@
 // Include external files
 #include QMK_KEYBOARD_H
 #include "version.h"
+#include <stdio.h>
 // Incuding stdbool for boolean
 #include <stdbool.h>
+
 
 // Note if you do not want combo and leader for scrolling.
 // Go to rules.mk and turn yes to no, same goes for OLED and tap-dance.
