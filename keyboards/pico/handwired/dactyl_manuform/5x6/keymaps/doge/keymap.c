@@ -276,7 +276,6 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
 
 // Setting OLED(optional) support
 #ifdef OLED_ENABLE
-#include <stdio.h>
 #include "oled_driver.h"
 // This is a bongocat from https://github.com/qmk/qmk_firmware/blob/master/keyboards/mechwild/mercutio/keymaps/bongocat
 if (is_keyboard_right) {
