@@ -46,7 +46,7 @@
 #define ONESHOT_TIMEOUT 1500
 #endif
 
-// RGB Matrix getting rid of misc efects we will not be using.
+// RGB Matrix & Lighting are being defined for we're gonna use our own that way we space and don't have unused effects.
 #ifdef RGBLIGHT_ENABLE
 #define DISABLE_RGB_MATRIX_DIGITAL_RAIN
 #define DISABLE_RGB_MATRIX_ALPHAS_MODS
