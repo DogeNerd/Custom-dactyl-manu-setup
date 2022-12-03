@@ -8,7 +8,7 @@ SPLIT_KEYBOARD = yes
 # Drivers for components
 OLED_DRIVER = SSD1306
 OLED_DRIVER = yes
-# Needed for OLED setup
+# Needed for OLED if you wanna display your WPMs.
 WPM_ENABLE = yes
 # RGB Light
 RGBLIGHT_ENABLE = yes
