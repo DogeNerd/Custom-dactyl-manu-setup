@@ -1,5 +1,5 @@
 #pragma once
-//#include "config_common.h"
+#include "config_common.h"
 
 // Defining the split board's master.
 #define SPLIT_HAND_PIN      GP26  // high = left, low = right
@@ -27,7 +27,7 @@
 #define RGB_DI_PIN GP17
 #define RGBLED_NUM 34
 #define RGBLED_SPLIT { 17, 17 }
-//#define STM32_SYSCLK KINETIS_SYSCLK_FREQUENCY
+#define STM32_SYSCLK KINETIS_SYSCLK_FREQUENCY
 #define NOP_FUDGE 0.4
 #endif
 
