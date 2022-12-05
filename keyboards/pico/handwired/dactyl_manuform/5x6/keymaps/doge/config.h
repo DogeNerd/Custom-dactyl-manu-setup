@@ -6,10 +6,10 @@
 #define PRODUCT_ID 0x3536
 
 // Saving coding space
-#undef NO_DEBUG
-#define NO_DEBUG
-#undef NO_PRINT
-#define NO_PRINT
+//#undef NO_DEBUG
+//#define NO_DEBUG
+//#undef NO_PRINT
+//#define NO_PRINT
 
 // RP2040 Settings
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET
@@ -17,11 +17,11 @@
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_LED_MASK 0U
 
 // Complete Death
-#define QMK_KEYS_PER_SCAN 12
-#define USB_POLLING_INTERVAL_MS 1
-#define DEBOUNCE 3
-#define FORCE_NKRO
-#define MG_NKRO MAGIC_TOGGLE_NKRO
+//#define QMK_KEYS_PER_SCAN 12
+//#define USB_POLLING_INTERVAL_MS 1
+//#define DEBOUNCE 3
+//#define FORCE_NKRO
+//#define MG_NKRO MAGIC_TOGGLE_NKRO
 
 // Mouse Keyboard setup
 #define MK_3_SPEED

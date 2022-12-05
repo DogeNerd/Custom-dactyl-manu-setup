@@ -1,5 +1,5 @@
-
-#include "config_common.h"
+#pragma once
+//#include "config_common.h"
 
 // Defining the split board's master.
 #define SPLIT_HAND_PIN      GP26  // high = left, low = right
@@ -9,7 +9,7 @@
 #define SERIAL_USART_TX_PIN GP0
 #define SERIAL_USART_RX_PIN GP1
 #define SERIAL_PIO_USE_PIO0
-#define SERIAL_USART_TIMEOUT 100  // USART driver timeout. default 100
+#define SERIAL_USART_TIMEOUT 100 // USART driver timeout. default 100
 #define SERIAL_USART_SPEED 921600
 #define SERIAL_USART_PIN_SWAP
 
@@ -26,9 +26,8 @@
 #ifdef RGBLIGHT_ENABLE
 #define RGB_DI_PIN GP17
 #define RGBLED_NUM 34
-//#define DRIVER_LED_TOTAL 34
 #define RGBLED_SPLIT { 17, 17 }
-#define STM32_SYSCLK KINETIS_SYSCLK_FREQUENCY
+//#define STM32_SYSCLK KINETIS_SYSCLK_FREQUENCY
 #define NOP_FUDGE 0.4
 #endif
 
