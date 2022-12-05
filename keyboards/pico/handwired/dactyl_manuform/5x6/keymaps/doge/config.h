@@ -17,11 +17,11 @@
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_LED_MASK 0U
 
 // Complete Death
-//#define QMK_KEYS_PER_SCAN 12
-//#define USB_POLLING_INTERVAL_MS 1
-//#define DEBOUNCE 3
-//#define FORCE_NKRO
-//#define MG_NKRO MAGIC_TOGGLE_NKRO
+#define QMK_KEYS_PER_SCAN 12
+#define USB_POLLING_INTERVAL_MS 1
+#define DEBOUNCE 3
+#define FORCE_NKRO
+#define MG_NKRO MAGIC_TOGGLE_NKRO
 
 // Mouse Keyboard setup
 #define MK_3_SPEED
