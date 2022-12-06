@@ -11,7 +11,7 @@
 #define SERIAL_PIO_USE_PIO0
 #define SERIAL_USART_TIMEOUT 100 // USART driver timeout. default 100
 #define SERIAL_USART_SPEED 921600
-//#define SERIAL_USART_PIN_SWAP
+#define SERIAL_USART_PIN_SWAP
 
 /* key matrix size */
 // Rows are doubled-up
