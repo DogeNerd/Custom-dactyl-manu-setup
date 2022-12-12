@@ -13,5 +13,8 @@ WPM_ENABLE = no
 # RGB Light
 RGBLIGHT_ENABLE = no
 
+# Debugs
+CONSOLE_ENABLE = no
+
 # Opt defs, comment out if you're not using OLED screen for the dactyl_manuform.
 #OPT_DEFS+= -DHAL_USE_I2C=TRUE
