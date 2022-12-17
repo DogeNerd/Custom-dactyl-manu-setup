@@ -5,16 +5,8 @@
 #define VENDOR_ID 0x444D
 #define PRODUCT_ID 0x3536
 
-// Saving coding space
-//#undef NO_DEBUG
-//#define NO_DEBUG
-//#undef NO_PRINT
-//#define NO_PRINT
-
-// RP2040 Settings
-//#define RP2040_BOOTLOADER_DOUBLE_TAP_RESET
-//#define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_TIMEOUT 200U
-//#define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_LED_MASK 0U
+// Setting Scan-Rate debugging
+#define DEBUG_MATRIX_SCAN_RATE
 
 // Complete Death
 #define QMK_KEYS_PER_SCAN 12

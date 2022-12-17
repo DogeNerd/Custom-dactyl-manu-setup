@@ -23,6 +23,8 @@ extern uint16_t scroll_delay_timer;
 // Scroll timer
 void keyboard_post_init_user(void) {
     scroll_delay_timer = timer_read();
+//    debug_config.enable = true;
+//    debug_config.matrix = true;
 }
 #endif
 #endif

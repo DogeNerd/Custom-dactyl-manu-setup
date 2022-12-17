@@ -1,4 +1,9 @@
+LTO_ENABLE = yes
+
 COMBO_ENABLE = yes
 LEADER_ENABLE = yes
 MOUSEKEY_ENABLE = yes
 EXTRAKEY_ENABLE = yes
+
+# Settings some Debugs
+CONSOLE_ENABLE = no
